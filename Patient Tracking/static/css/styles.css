@@ -1,0 +1,121 @@
+img{max-width:100%;}
+body{
+	background:#F8FBFB;
+}
+.wrap{
+	width:80%;
+	margin:0 auto;
+}
+.header{
+	background:url(../images/header-bg.png);
+}
+.content-grids{
+
+	padding: 10px 0px;
+}
+.group:after {
+    content:"";
+    display:table;
+
+}
+.group:after {
+    clear:both;
+}
+.listview_1_of_3{
+	display: block;
+	float:left;
+	margin: 0% 0 0% 1.6%;
+
+}
+.listimg{
+	display: block;
+	float:left;
+}
+.listimg2{
+	display: block;
+	float:right;
+}
+.images_1_of_3 {
+	width: 48%;
+	padding:1.5%;
+	border-radius: 1.1em;
+}
+.listimg_1_of_2{
+	width: 30%;
+}
+.listimg2_1_of_2{
+	width: 25%;
+}
+.list2_1_of_2 {
+display: block;
+	float:right;
+	color:#3391E7;
+	margin-bottom:0.2em;
+	margin-top:0;
+	font-size: 2em;
+	font-family: 'Ropa Sans', sans-serif;
+	font-weight : normal;
+	letter-spacing: -1px;
+}
+.list_1_of_2 {
+
+	color:#3391E7;
+	margin-bottom:0.2em;
+	margin-top:0;
+	font-size: 2em;
+	font-family: 'Ropa Sans', sans-serif;
+	font-weight : normal;
+	letter-spacing: -1px;
+}
+.logo{
+padding-top: 10px;
+padding-left: 25px;
+font-size: 30px;
+color: #198ae0;
+font-family: 'Carme', sans-serif;
+}
+
+.sub{
+  padding-left: 25px;
+  border-bottom: 1px solid #db8d7;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  color: #477ad8;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: 'Azeret Mono', monospace;
+}
+.top{
+   padding-top: 150px;
+}
+.ques{
+text-align: center;
+font-size: 60px;
+color: #198ae0;
+font-family: 'Carme', sans-serif;
+  border-bottom: 1px solid #db8d7;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  padding-bottom: 50px;
+}
+.left{
+  padding-left: 250px;
+}
+p{
+  border-bottom: 1px solid #db8d7;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  color: #477ad8;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: 'Azeret Mono', monospace;
+}
+.card-common{
+    box-shadow: 1px 2px 5px gray;
+   transition: all .4s;
+}
+.card-common:hover {
+    box-shadow: 2px 3px 15px gray;
+    transform: translateY(-1px);
+}
+
+.blue{
+  background-color: #198ae0;
+}

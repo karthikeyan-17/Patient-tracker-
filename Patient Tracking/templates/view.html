@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Admin</title>
+	<link rel="stylesheet" href="{{url_for('static', filename='css/doc.css')}}">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar">
+        <h2>ADMIN Portal</h2>
+        <ul>
+           <li><a ID="one" href="{{url_for('admin')}}"><i class="fas fa-columns"></i>Dashboard</a></li>
+            <li><a href="{{url_for('add')}}"><i class="fas fa-plus"></i>Add</a></li>
+            <li><a href="{{url_for('view')}}"><i class="fas fa-eye"></i>View</a></li>
+            <li><a href="{{url_for('active')}}"><i class="fas fa-chart-line"></i>Active</a></li>
+            <li><a href="{{url_for('complete')}}"><i class="fas fa-clipboard-list"></i>Complete</a></li>
+            <li><a href="{{url_for('logout_a')}}"><i class="fas fa-sign-out-alt"></i>Signout</a></li>
+        </ul>
+    </div>
+    <div class="main_content">
+        <div class="header"><strong>Patient Details</strong></div>
+        <div class="info">
+            <form class="new" method="POST" action="#">
+            <div class="row">
+                <div class="col-md-4">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Patient Id" name="key" aria-describedby="button-addon2">
+                <input class="btn btn-outline-secondary" type="submit" value="Search" id="button-addon2" name="btn">
+            </div>
+        </div>
+            </div>
+            </form>
+                  {% for i in range(length) %}
+                <form class="new" id={{i}} action="#" method="POST">
+                    <label class="inner"><i class="fas"></i>Patient Id: <strong>{{no[i][0]}}</strong> &ensp;{{date[i][0]}} &ensp;<br> Name: {{name[i][0]}}</label>
+                  <input type="hidden" name="text" value="{{no[i][0]}}">
+                    <div class="btn-group-vertical">
+                  <input class="inner btn btn-primary btn-sm" name="btn" type="submit" value="View">
+                    </div>
+                  </form>
+                  {% endfor %}
+      </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+</body>
+</html>

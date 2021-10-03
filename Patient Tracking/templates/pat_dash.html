@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Patient</title>
+    <meta charset="utf-8">
+    <script src="https://kit.fontawesome.com/c0fc838bea.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/pat.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+  <body>
+      <nav class="navbar navbar-expand-md navbar-light">
+    <div class="container-fluid">
+        <div class="row">
+            <div class=" col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
+                <br>
+                <a href="#" class="navbar-brand text-white d-block
+                mx-auto text-center py-3 mb-4"><i class="fas fa-cannabis text-light fa-3x"></i></a>
+                <div class="bottom-border pb-3">
+                    </div>
+                <br>
+                <a href="{{url_for('patient')}}" class="nav-link text-white p-3 mb-2 sidebar-link">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<i class="fas fa-user text-light fa-lg mr-3"></i>Profile</a>
+                <a href="{{url_for('dashboard')}}" class="nav-link text-white p-3 mb-2 sidebar-link">&ensp;&ensp;&ensp;&ensp;&ensp;<i class="fas fa-columns text-light fa-lg mr-3"></i>Dashboard</a>
+                <a href="{{url_for('logout_p')}}" class="nav-link text-white p-3 mb-2 sidebar-link">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<i class="fas fa-sign-out-alt text-light fa-lg mr-3"></i>Signout</a>
+            </div>
+<div class="col-xl-10 col-lg-9 top-bar fixed-top py-2 top-nav" style="margin-left: 250px; width: auto;">
+    <div class="row align-item-center">
+   <div class="col-md-4">
+       <br>
+ <h4 class="text-dark mb-0 new">Dashboard</h4>
+
+   </div>
+        <div class="col-md mes">
+           <button class="notification" name="noti">
+               <span><i class="fas fa-comments fa-2x"></i></span>
+                <span class="badge">
+                    {% if con == "PSI" %}
+                    1
+                    {% else %}
+                    2
+                    {% endif %}
+                </span>
+           </button>
+       </div>
+        {% if con != "PSI" %}
+         <div class="alert2 hide">
+         <span class="fas fa-exclamation-circle"></span>
+         <span class="msg">Change your Aligners every 14 Hrs!</span>
+         <div class="close-btn2">
+            <span class="fas fa-times"></span>
+         </div>
+         </div>
+        {% endif %}
+             <div class="alert1 hide">
+         <span class="fas fa-exclamation-circle"></span>
+         <span class="msg">Upload the image</span>
+         <div class="close-btn1">
+            <span class="fas fa-times"></span>
+         </div>
+      </div>
+
+   </div>
+   </div>
+</div>
+    </div>
+      </nav>
+  <div class="top left">
+      <h1>Patient Id <strong>{{no}}</strong></h1>
+      <h5>Track your Progress with the Clinic</h5>
+      <br><br>
+      <h4>
+          {% if val == 0%}
+          <strong>Status: Active</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Appointment Date: {{apt}}</strong>
+          {% else %}
+          <strong>Status: Complete</strong>
+          {% endif %}
+      </h4>
+      <br>
+      <p>On the date <strong>{{date[0][0].split()[0]}}</strong> you report was registered on the Portal.</p>
+      <p>As per the report your concern is <strong>{{con[0][0]}}</strong></p>
+
+      <form action="/download" method="POST">
+          <input type="hidden" name="att_val" value="{{att}}">
+          <p>The X-ray Report of the Patient<input class="inner btn btn-link btn-sm" type="submit" name="btn" value="{{att}}"> </p>
+      </form>
+      <br><br>
+      <form action="/dashboard" method="POST" enctype="multipart/form-data">
+          <div class="input-group mb-3">
+            Upload Image
+          </div>
+          <i class="fas fa-paperclip"></i>
+          {% if val == 0%}
+          <input type="file" name="file" required >
+          <button class="inner btn btn-primary btn-sm" type="submit" name="submit">Upload</button>
+          {% else %}
+          <input type="file" name="file" disabled>
+          <button class="inner btn btn-primary btn-sm" type="submit" name="submit" disabled>Upload</button>
+          {% endif %}
+  </form>
+    <br><br>
+      <div>
+          <table class="table left"style="width: 90%;">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">File</th>
+                    <th scope="col">Download</th>
+                  </tr>
+                </thead>
+                <tbody>
+          {% if upl %}
+
+          {% for i in range(length) %}
+
+          <form class="new" action="/download" id={{i}} method="POST">
+              <input type="hidden" name="att_val" value="{{rep[i][0]}}">
+              <tr>
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{dt_upl[i][0].split()[0]}}</td>
+                    <td>{{dt_upl[i][0].split()[1]}}</td>
+                    <td>{{rep[i][0]}}</td>
+                    <td><input class="inner btn btn-link btn-sm" type="submit" name="btn" value="Download"></td>
+              </tr>
+          </form>
+
+          {% endfor %}
+
+          {% else %}
+          <br>
+          {% endif %}
+              </tbody>
+            </table>
+      </div>
+      <br><br><br>
+  </div>
+  <script>
+         $("button[name='noti']").click(function(){
+           $('.alert1').addClass("show");
+           $('.alert1').removeClass("hide");
+           $('.alert1').addClass("showAlert");
+           $('.alert2').addClass("show");
+           $('.alert2').removeClass("hide");
+           $('.alert2').addClass("showAlert");
+           setTimeout(function(){
+             $('.alert1').removeClass("show");
+             $('.alert1').addClass("hide");
+             $('.alert2').removeClass("show");
+             $('.alert2').addClass("hide");
+           },5000);
+         });
+         $('.close-btn1').click(function(){
+           $('.alert1').removeClass("show");
+           $('.alert1').addClass("hide");
+         });
+         $('.close-btn2').click(function(){
+           $('.alert2').removeClass("show");
+           $('.alert2').addClass("hide");
+         });
+      </script>
+  </body>
+
+</html>

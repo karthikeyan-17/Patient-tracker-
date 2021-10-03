@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Patient</title>
+    <meta charset="utf-8">
+    <script src="https://kit.fontawesome.com/c0fc838bea.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/pat.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Carme&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+  <body>
+      <nav class="navbar navbar-expand-md navbar-light">
+    <div class="container-fluid">
+        <div class="row">
+            <div class=" col-xl-2 col-lg-3 col-md-4 sidebar fixed-top">
+                <br>
+                <a href="#" class="navbar-brand text-white d-block
+                mx-auto text-center py-3 mb-4"><i class="fas fa-cannabis text-light fa-3x"></i></a>
+                <div class="bottom-border pb-3">
+                    </div>
+                <br>
+                <a href="{{url_for('patient')}}" class="nav-link text-white p-3 mb-2 sidebar-link">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<i class="fas fa-user text-light fa-lg mr-3"></i>Profile</a>
+                <a href="{{url_for('dashboard')}}" class="nav-link text-white p-3 mb-2 sidebar-link">&ensp;&ensp;&ensp;&ensp;&ensp;<i class="fas fa-columns text-light fa-lg mr-3"></i>Dashboard</a>
+                <a href="{{url_for('logout_p')}}" class="nav-link text-white p-3 mb-2 sidebar-link">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<i class="fas fa-sign-out-alt text-light fa-lg mr-3"></i>Signout</a>
+            </div>
+<div class="col-xl-10 col-lg-9 top-bar fixed-top py-2 top-nav" style="margin-left: 250px; width: auto;">
+    <div class="row align-item-center">
+   <div class="col-md-7">
+       <br>
+ <h4 class="text-dark mb-0 new">Patients Detail</h4>
+   </div>
+       <div class="col-md mes">
+
+           <button class="notification" name="noti">
+               <span><i class="fas fa-comments fa-2x"></i></span>
+                <span class="badge">
+                    {% if con == "PSI" %}
+                    1
+                    {% else %}
+                    2
+                    {% endif %}
+                </span>
+           </button>
+       </div>
+        {% if con != "PSI" %}
+         <div class="alert2 hide">
+         <span class="fas fa-exclamation-circle"></span>
+         <span class="msg">Change your Aligners every 14 Hrs!</span>
+         <div class="close-btn2">
+            <span class="fas fa-times"></span>
+         </div>
+         </div>
+        {% endif %}
+             <div class="alert1 hide">
+         <span class="fas fa-exclamation-circle"></span>
+         <span class="msg">Upload the image</span>
+         <div class="close-btn1">
+            <span class="fas fa-times"></span>
+         </div>
+      </div>
+    </div>
+
+   </div>
+</div>
+    </div>
+      </nav>
+  <div class="top left">
+      <h1>Hi {{name}}</h1>
+      <h5>Hope your smile is Bright and White</h5>
+      <br><br><br>
+      <div class="detail">
+      <div class="row">
+          <div class="col-md-3">
+              <p><strong>Patient Id:</strong> {{no}}</p>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-3">
+              <p><strong>Patient Name:</strong> {{name}}</p>
+          </div>
+          <div class="col-md-2">
+              <p><strong>DOB:</strong> {{dob}}</p>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-3">
+              <p><strong>Gender:</strong> {{gen}}</p>
+          </div>
+          <div class="col-md-3">
+              <p><strong>City:</strong> {{city}}</p>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-3">
+              <strong>Concern:</strong> {{con}}
+
+          </div>
+      </div>
+          <div class="row">
+          <div class="col-md-12 mes">
+              <br><br><br>
+              <a href="{{url_for('chat')}}"><span><i class="fab fa-whatsapp fa-3x" style="color: #2dcf58;"></i></span></a>
+          </div>
+      </div>
+      </div>
+
+  </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+   <script>
+         $("button[name='noti']").click(function(){
+           $('.alert1').addClass("show");
+           $('.alert1').removeClass("hide");
+           $('.alert1').addClass("showAlert");
+           $('.alert2').addClass("show");
+           $('.alert2').removeClass("hide");
+           $('.alert2').addClass("showAlert");
+           setTimeout(function(){
+             $('.alert1').removeClass("show");
+             $('.alert1').addClass("hide");
+             $('.alert2').removeClass("show");
+             $('.alert2').addClass("hide");
+           },5000);
+         });
+         $('.close-btn1').click(function(){
+           $('.alert1').removeClass("show");
+           $('.alert1').addClass("hide");
+         });
+         $('.close-btn2').click(function(){
+           $('.alert2').removeClass("show");
+           $('.alert2').addClass("hide");
+         });
+      </script>
+
+  </body>
+
+
+</html>

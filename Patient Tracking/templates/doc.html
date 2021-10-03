@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Admin</title>
+	<link rel="stylesheet" href="{{url_for('static', filename='css/doc.css')}}">
+	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<script src="https://kit.fontawesome.com/c0fc838bea.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar">
+        <h2>ADMIN Portal</h2>
+        <ul>
+            <li><a ID="one" href="{{url_for('admin')}}"><i class="fas fa-columns"></i>Dashboard</a></li>
+            <li><a href="{{url_for('add')}}"><i class="fas fa-plus"></i>Add</a></li>
+            <li><a href="{{url_for('view')}}"><i class="fas fa-eye"></i>View</a></li>
+            <li><a href="{{url_for('active')}}"><i class="fas fa-chart-line"></i>Active</a></li>
+            <li><a href="{{url_for('complete')}}"><i class="fas fa-clipboard-list"></i>Complete</a></li>
+            <li><a href="{{url_for('logout_a')}}"><i class="fas fa-sign-out-alt"></i>Signout</a></li>
+        </ul>
+    </div>
+    <div class="main_content">
+        <div class="header"><h4>My Profile</h4></div>
+        <br>
+        <h1>Admin</h1>
+        <h3>Welcome Back!</h3>
+        <br>
+        <div class="container-fluid">
+     <div class="row">
+         <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+             <s class="row pt-md-5 mt-md-3 mb-5">
+                 <div class="col-xl-3 col-sm-6 p-2">
+                     <div class="card card-common">
+                         <div class="card-body">
+                             <div class="d-flex justify-content-between">
+                                 <i ></i>
+                                 <div class="text-right text-dark">
+                                     <h5>ACTIVE</h5>
+                                     <h3>{{act}}</h3>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-xl-3 col-sm-6 p-2">
+                        <div class="card card-common">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <i class=></i>
+                                        <div class="text-right text-dark">
+                                            <h5>COMPLETED</h5>
+                                            <h3>{{com}}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                 </div>
+                        <div class="col-xl-3 col-sm-6 p-2">
+                            <div class="card card-common">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <i class=></i>
+                                            <div class="text-right text-dark">
+                                                <h5>TOTAL</h5>
+                                                <h3>{{tot}}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+             </s>
+         </div>
+     </div>
+
+      </div>
+    </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+</html>
